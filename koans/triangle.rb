@@ -14,7 +14,15 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
-  # WRITE THIS CODE
+  x, y, z = [a,b,c].sort
+  raise TriangleError, "Invalid side values" if x <= 0 or x + y <= z
+  if a == b and a == c
+    return :equilateral
+  elsif a == b or b == c or a == c
+    return :isosceles 
+  else
+    return :scalene
+  end
 end
 
 # Error class used in part 2.  No need to change this code.
